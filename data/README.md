@@ -1,5 +1,5 @@
 # Project: Density
-### Output folder
+### Data folder
 
-The output directory contains analysis output, processed datasets, logs, or other processed things.
+The data directory contains all data to be accessed in the project.
 

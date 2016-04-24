@@ -61,9 +61,24 @@ def get_all_data(output_path, yr_1, m_1, d_1, h_1, min_1, yr_f, m_f, d_f, h_f, m
     this is the highest level run function for the scraper
     '''
 
-    building_to_location_id_dic = {'john jay': '125',
-                                    'jjs': '155'
+    building_to_location_id_dic = {#'john jay': '125',
+                                    #'jjs': '155'
 #                                    'lerner3': '152', 'lerner4': '153'
+                                    "Butler Library 301":'171'#,
+                                    # "Architectural and Fine Arts Library 1":'147',
+                                    # "Architectural and Fine Arts Library 2":'148',
+                                    # "Architectural and Fine Arts Library 3":'149',
+                                    # "Butler Library 2":'130',
+                                    # "Butler Library 3":'131',
+                                    # "Butler Library 4":'132',
+                                    # "Butler Library 5":'133',
+                                    # "Butler Library 6":'134',
+                                   # "Butler Library stk":'138'#,
+                                    # "Starr East Asian Library":'144',
+                                    # "Lehman Library 2":'139',
+                                    # "Lehman Library 3":'140',
+                                    # "Science and Engineering Library":'145'
+                                    # "Uris":'23'
                     }
     location_data_dic = {}
     for location_name, location_id in building_to_location_id_dic.iteritems():
@@ -73,5 +88,5 @@ def get_all_data(output_path, yr_1, m_1, d_1, h_1, min_1, yr_f, m_f, d_f, h_f, m
         location_data.to_csv(output_path + location_name.replace(' ', '_') + '.csv')
     return location_data_dic
 
-output_path = '/home/max/Documents/finalproject-p5-team10-master/output/'
+output_path = '../output/'
 all_locations_data_dic = get_all_data(output_path, 2014, 8, 10, 12, 00, 2016, 4, 23, 01, 00)

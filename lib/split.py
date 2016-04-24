@@ -21,7 +21,12 @@ def split_sem(placename):
 	spr_2015.to_csv('../output/' + placename + '_spr_2015.csv')
 	fall_2015.to_csv('../output/' + placename + '_fall_2015.csv')
 
-split_sem('john_jay')
-split_sem('jjs')
-split_sem('lerner3')
-split_sem('lerner4')
+buildings = ["Architectural and Fine Arts Library 1", "Architectural and Fine Arts Library 2", "Architectural and Fine Arts Library 3", "Butler Library 2", "Butler Library 3", "Butler Library 4", "Butler Library 5", "Butler Library 6","Butler Library stk", "Starr East Asian Library", "Lehman Library 2", "Lehman Library 3", "Science and Engineering Library","Uris"]
+for build in buildings:
+	split_sem(build.replace(' ','_'))
+
+
+# split_sem('john_jay')
+# split_sem('jjs')
+# split_sem('lerner3')
+# split_sem('lerner4')

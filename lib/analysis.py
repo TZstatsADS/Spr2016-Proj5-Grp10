@@ -55,20 +55,13 @@ def total_usage(typeofplace, placename,begin_time,end_time):
 	days = []
 	totals = []
 	capacity = df.max()
-	# newdf = df[end_time:begin_time]
 	timecount = (df[end_time:begin_time]/capacity).to_dict()['count'].items()
 	timecount = sorted(timecount,key=lambda x: x[0])
 	for (key, value) in  timecount:
-		days.append(key.time().strftime("%H:%M"))
+		days.append(key.time())#.strftime("%H:%M"))
 		totals.append(value)
-	ind = np.arange(len(days))
-	width = 0.35 
-	fig, ax = plt.subplots()
-	rects1 = ax.bar(ind, totals, width, color='r')
-	ax.set_ylabel('Percent Full')
-	ax.set_title('How Full is ' + placename)
-	ax.set_xticks(ind + width)
-	ax.set_xticklabels(days)
+	plt.scatter(days,totals)
+	plt.plot(days,totals)
 	plt.show()
 
 total_usage('dining','john_jay','2016-4-20 11:00:00','2016-4-20 14:00:00')

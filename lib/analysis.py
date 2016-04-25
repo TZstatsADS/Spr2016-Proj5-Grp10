@@ -101,3 +101,25 @@ def average_butler():
 	plt.show()
 
 
+def average_dining():
+	alldining = pd.read_csv('../output/alldining.csv', index_col='t')
+	alldining.index = pd.to_datetime(alldining.index)
+	halls = dining = ["jjs","john jay","lerner3","lerner4"]
+	for hall in halls:
+		hours = []
+		totals = []
+		thishall = alldining[alldining['location'] == hall.replace(' ','_')]
+		timecount = thishall.groupby(thishall.index.hour).mean().to_dict()['count'].items()
+		timecount = sorted(timecount,key=lambda x: x[0])
+		for (key, value) in  timecount:
+			hours.append(key)
+			totals.append(value)
+		plt.scatter(days,totals)
+		plt.plot(days,totals, label= hall)
+	plt.legend(loc='upper left')
+	plt.show()		
+
+
+
+
+

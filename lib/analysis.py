@@ -67,4 +67,37 @@ def total_usage(typeofplace, placename,begin_time,end_time):
 total_usage('dining','john_jay','2016-4-20 11:00:00','2016-4-20 14:00:00')
 
 
+def average_total():
+	alllibrary = pd.read_csv('../output/alllibrary.csv', index_col='t')
+	alllibrary.index = pd.to_datetime(alllibrary.index)
+	days = []
+	totals = []
+	# capacity = df.max()
+	timecount = alllibrary.groupby(alllibrary.index.hour).mean().to_dict()['count'].items()
+	timecount = sorted(timecount,key=lambda x: x[0])
+	for (key, value) in  timecount:
+		days.append(key)#.strftime("%H:%M"))
+		totals.append(value)
+	plt.scatter(days,totals)
+	plt.plot(days,totals)
+	plt.show()
+
+def average_butler():
+	alllibrary = pd.read_csv('../output/alllibrary.csv', index_col='t')
+	alllibrary.index = pd.to_datetime(alllibrary.index)
+	butlers = ["Butler Library 2", "Butler Library 3", "Butler Library 4", "Butler Library 5", "Butler Library 6","Butler Library stk"]
+	for butler in butlers:
+		hours = []
+		totals = []
+		thisbutler = alllibrary[alllibrary['location'] == butler.replace(' ','_')]
+		timecount = thisbutler.groupby(thisbutler.index.hour).mean().to_dict()['count'].items()
+		timecount = sorted(timecount,key=lambda x: x[0])
+		for (key, value) in  timecount:
+			hours.append(key)
+			totals.append(value)
+		plt.scatter(days,totals)
+		plt.plot(days,totals, label= butler)
+	plt.legend(loc='upper left')
+	plt.show()
+
 

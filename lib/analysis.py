@@ -3,20 +3,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def dayofweek_int_to_str(dayofweek):
+	day_num_to_str = { 0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thur', 4: 'Fri', 5: 'Sat', 6: 'Sun'}
+	return day_num_to_str[dayofweek]
+    
+    
 def week_total(typeofplace, placename, semester):
 	df = pd.read_csv('../output/' + typeofplace + '/' + placename + '_' + semester + '.csv', index_col='t')
 	df.index = pd.to_datetime(df.index)
 	days = []
 	totals = []
 	for key, value in df.groupby(df.index.dayofweek).sum().to_dict()['count'].items():
-		days.append(key)
+		days.append(dayofweek_int_to_str(key))
 		totals.append(value)
 	ind = np.arange(len(days))
 	width = 0.35 
 	fig, ax = plt.subplots()
 	rects1 = ax.bar(ind, totals, width, color='r')
-	ax.set_ylabel('Totals')
-	ax.set_title('Total students per day of the week')
+	ax.set_ylabel(semester + ' Aggregate Occupancy')
+	ax.set_title('Total Occupancy of ' + placename + ' during ' + semester)
 	ax.set_xticks(ind + width)
 	ax.set_xticklabels(days)
 	plt.show()

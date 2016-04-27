@@ -75,3 +75,5 @@ acf(res,type="partial")
 ##We can see from the plot that most of the residuals are within the bounds, so the model fits
 a=predict(model7,16)
 ##capacity of JJ during the next 16 days.
+a$pred
+plot(a$pred)

@@ -81,7 +81,7 @@ def extract_open_hours(placename, weekday_series_dic):
     elif placename == 'john_jay':
         for weekday, date_series_df in weekday_series_dic.items():
             if (weekday == 'Fri') or (weekday == 'Sat'):
-                continue ## IF col count < THRESH drop it
+                continue
             mask = (date_series_df.index >= datetime.time(9,0)) & (date_series_df.index <= datetime.time(21,0))
             sliced_df = date_series_df.loc[mask]
             sliced_dic[weekday] = trim_df_by_daily_count(sliced_df, 2000)
@@ -153,9 +153,7 @@ def load_all_current(placename, semester, points_to_predict = 1):
     trimmed_current = current_data.loc[first:last_measure]
     return trimmed_current, trimmed_prior, weekday_series_df
 
-c, f, w = load_all_current('john_jay', 'spr_2016')
-
-def forecast_master(c,f,w, points_to_predict=19):
+def forecast_master(c,f,w, points_to_predict=19, del_2=False):
     to_predict = np.array(c).T
     new_to_predict = list(to_predict[0])
     for i in range(0, points_to_predict - 1):
@@ -168,26 +166,28 @@ def forecast_master(c,f,w, points_to_predict=19):
         clf.fit(filtered_X, next_X)
         new_to_predict.append(clf.predict(to_predict)[0])
         next_X.append(w[old_date][-1])
-        print new_to_predict
         to_predict = np.array([new_to_predict])
     return pd.Series(to_predict[-1], index=w.index[:len(to_predict[-1])])
+
 
 def predict():
     msg ="Which dining hall do you want to explore?"
     title = "Where 2 Eat"
     dhalls = ["john_jay", "jjs"]
     dhall = eGUI.choicebox(msg, title, dhalls)
-    msg = "How many half-hours do you want to glance into the future?"
+    msg = "How many hours do you want to glance into the future?"
     integer = eGUI.integerbox(msg, title, default = '2')
-    points_to_predict = int(integer)*2
+    points_to_predict = int(integer)*4
     c, f, w = load_all_current(dhall, 'spr_2016')
     predicted = forecast_master(c, f, w, points_to_predict)
-    f.iloc[:len(predicted)].plot()
     plt.plot(predicted.index, predicted.values, color='black', linewidth=1., linestyle='dashed')
-    plt.plot(c.index, c.values, color='blUe', linewidth=2.)
+    historical = w[w.columns[:3]].iloc[:len(predicted.index)]
+    plt.plot(historical.index, historical.values, linewidth=.7,color='gray', linestyle='dashed')
+    plt.plot(c.index, c.values, color='blue', linewidth=2., label = 'Today')
+    plt.title( 'Current and Predicted Occupancy for ' + dhall + ' Today')
+    plt.ylabel('users connected')
+    plt.xlabel('time')
     plt.show()
-    return predicted
-p = predict()
-plt.plot(p.index, p.values, color='black', linewidth=1., linestyle='dashed')
-plt.plot(c.index, c.values, color='blue', linewidth=2.)
-plt.show()
+    return predicted, w
+
+p, w = predict()

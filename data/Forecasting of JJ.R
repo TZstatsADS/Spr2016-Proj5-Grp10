@@ -1,6 +1,6 @@
 library(tseries)
 ##The data
-jj=read.csv('~/Desktop/project5/john_jay_daily.csv')
+jj=read.csv('../output/john_jay_daily.csv')
 jj1=jj$count
 ##Exploratory Plots
 ts.plot(jj1)

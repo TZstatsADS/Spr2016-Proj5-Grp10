@@ -1,3 +1,5 @@
+
+
 recommend <- function(timestr){
   weekday <- strsplit(timestr,',')[[1]][1]
   hour <- strsplit(timestr,',')[[1]][2]
@@ -17,9 +19,40 @@ recommend <- function(timestr){
 
 }
 
+Architectural_Fine_Arts_Library_1_final_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_1_final_spr_2015.csv")
+Architectural_Fine_Arts_Library_2_final_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_2_final_spr_2015.csv")
+Architectural_Fine_Arts_Library_3_final_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_3_final_spr_2015.csv")
+Architectural_Fine_Arts_Library_3_final_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_3_final_fall_2015.csv")
+Architectural_Fine_Arts_Library_3_final_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_3_final_fall_2014.csv")
+Architectural_Fine_Arts_Library_2_final_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_2_final_fall_2014.csv")
+Architectural_Fine_Arts_Library_2_final_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_2_final_fall_2015.csv")
+Architectural_Fine_Arts_Library_1_final_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_1_final_fall_2014.csv")
+Architectural_Fine_Arts_Library_1_final_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Architectural_and_Fine_Arts_Library_1_final_fall_2015.csv")
 
-Architectural_Fine_Arts_Library_2_final_fall_2015 <- read.csv("../output/Architectural_and_Fine_Arts_Library_2_final_fall_2015.csv")
-Butler_stk_fall_2014 <- read.csv("../output/Butler_Library_stk_final_fall_2014.csv")
-Science_and_Engineering_Library_final_spr_2015 <- read.csv("../output/Science_and_Engineering_Library_final_spr_2015.csv")
-Starr_East_Asian_Library_final_fall_2015 <- read.csv("../output/Starr_East_Asian_Library_final_fall_2015.csv")
-Uris_spr_2015 <- read.csv("../output/Uris_final_spr_2015.csv")
+Butler_3_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_3_final_fall_2014.csv")
+Butler_4_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_4_final_fall_2014.csv")
+Butler_5_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_5_final_fall_2014.csv") Butler_6_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_6_final_fall_2014.csv")
+Butler_6_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_6_final_fall_2015.csv")
+Butler_5_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_5_final_fall_2015.csv")
+Butler_4_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_4_final_fall_2015.csv")
+Butler_2_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_2_final_fall_2015.csv")
+Butler_2_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_2_final_spr_2015.csv")
+Butler_3_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_3_final_spr_2015.csv")
+Butler_4_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_4_final_spr_2015.csv")
+Butler_5_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_5_final_spr_2015.csv")
+Butler_6_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_6_final_spr_2015.csv")
+Butler_stk_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_stk_final_spr_2015.csv")
+Butler_stk_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_stk_final_fall_2015.csv")
+Butler_stk_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Butler_Library_stk_final_fall_2014.csv")
+
+Science_and_Engineering_Library_final_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Science_and_Engineering_Library_final_fall_2015.csv")
+Science_and_Engineering_Library_final_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Science_and_Engineering_Library_final_fall_2014.csv")
+Science_and_Engineering_Library_final_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Science_and_Engineering_Library_final_spr_2015.csv")
+
+Starr_East_Asian_Library_final_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Starr_East_Asian_Library_final_spr_2015.csv")
+Starr_East_Asian_Library_final_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Starr_East_Asian_Library_final_fall_2014.csv")
+Starr_East_Asian_Library_final_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Starr_East_Asian_Library_final_fall_2015.csv")
+
+Uris_fall_2014 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Uris_final_fall_2014.csv")
+Uris_fall_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Uris_final_fall_2015.csv")
+Uris_spr_2015 <- read.csv("/Users/lichi/finalproject-p5-team10/output/Uris_final_spr_2015.csv")

@@ -11,3 +11,5 @@ Some topics we hope to explore are:
 - Most 'hungry' times of the semester based on aggregate dining hall usage
 - correlation? 
  
+Google Slide:
+https://docs.google.com/presentation/d/1y8WbdyCzO0mK8M26ygPWX7h4Y7I0EgMnDcF9n9hv0oE/edit?usp=sharing
